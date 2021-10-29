@@ -15,10 +15,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var diceImageView1: UIImageView!
     @IBOutlet weak var diceImageView2: UIImageView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     @IBAction func rollButtonPressed(_ sender: UIButton) {
         let images = [
             UIImage(named: "DiceOne"),
@@ -29,8 +25,13 @@ class ViewController: UIViewController {
             UIImage(named: "DiceSix")
         ]
                 
-        diceImageView1.image = images[Int.random(in: 0...5)]
-        diceImageView2.image = images[Int.random(in: 0...5)]
+        if let randomDice1 = images.randomElement() {
+            diceImageView1.image = randomDice1
+        }
+        
+        if let randomDice1 = images.randomElement() {
+            diceImageView2.image = randomDice1
+        }
     }
 }
 
